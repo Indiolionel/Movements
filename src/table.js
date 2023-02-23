@@ -4,18 +4,18 @@ import Button from './button'
 import Delete from './delete'
 
 
-let url = 'http://localhost:5000/api/movements';
+let url = 'http://localhost:5000/move';
 
 function Table({ status }) {
 
   const listItems = status.map(a => {
-    const changeColor = a.amount > 0 ? 'green' : 'red';
+    const changeColor = a.Amount > 0 ? 'green' : 'red';
 
     return (
-      <tr className={`atributte ${changeColor}`} key={a.description}>
+      <tr className={`atributte ${changeColor}`} key={a.Name}>
         <div className='td'>
-        <td>{a.description}</td>
-        <td>{a.amount}</td>
+        <td>{a.Name}</td>
+        <td>{a.Amount}</td>
         </div>
        <button onClick={()=>{Delete(a._id)}} className='btn-delete'><i class="fa-solid fa-trash-can"></i></button> 
          

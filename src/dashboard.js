@@ -6,7 +6,7 @@ function Dashboard({ status, onclick }) {
   const balance = () => {
     let startValue = 0;
     status.map (a => {
-      startValue = startValue+a.amount
+      startValue = startValue+a.Amount
     })
     return startValue;
   }

@@ -1,11 +1,11 @@
 import Dashboard from './dashboard'
 import Table from './table'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from './modal'
 import Button from './button'
 
 
-let url = 'http://localhost:5000/api/movements';
+let url = 'http://localhost:5000/move';
 
 function App() {
 
@@ -14,16 +14,22 @@ function App() {
 
 
     
-    fetch(url)
+    useEffect(() => {
+        fetch(url)
         .then((resp) => resp.json())
         .then(function (data) {
-
-            return setDatajson(data.data);
+            console.log("data",data)
+            return setDatajson(data.moveAll);
 
         })
         .catch(function (error) {
             console.log(error);
         });
+    
+    }, [])
+    
+
+    
 
 
     return (
